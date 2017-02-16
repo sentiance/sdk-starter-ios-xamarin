@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{9D24D194-3406-457E-A6CA-016FC92FFDC3}</ProjectGuid>
+    <ProjectGuid>{64475519-913E-4D32-849A-556DABDAE374}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SDKStarter.iOS</RootNamespace>
+    <RootNamespace>SDKStarter</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SDKStarter.iOS</AssemblyName>
+    <AssemblyName>SDKStarter</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,22 +66,21 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFloat32>true</MtouchFloat32>
-    <CodesignKey>iPhone Developer: muhammad Iqbal (728CS5PV5L)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <IpaPackageName>
     </IpaPackageName>
-    <CodesignProvision>9a2c9058-c7c3-4366-acdd-02359941979e</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="SENTTransportDetectionSDK.iOS">
-      <HintPath>lib\SENTTransportDetectionSDK.iOS.dll</HintPath>
+    <Reference Include="sentiance-ios-sdk-1.1.2">
+      <HintPath>Libs\sentiance-ios-sdk-1.1.2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

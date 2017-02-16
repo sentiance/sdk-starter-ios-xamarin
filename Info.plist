@@ -11,7 +11,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>9.1</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -30,6 +30,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -39,6 +41,10 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We require your location to accurately detect your context and build your profile</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -48,11 +54,9 @@
 		<key>Allow Arbitrary Loads</key>
 		<true/>
 	</dict>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.sentiance.SDKStarter</string>
+	<string>com.sentiance.sdkstarter.xamarin</string>
+	<key>NSMotionUsageDescription</key>
+	<string>To accurately detect your context and build your profile</string>
 </dict>
 </plist>

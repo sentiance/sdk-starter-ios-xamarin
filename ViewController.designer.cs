@@ -7,19 +7,19 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace SDKStarter.iOS
+namespace SDKStarter
 {
 	[Register ("ViewController")]
 	partial class ViewController
 	{
 		[Outlet]
-		UIKit.UILabel userIdLabel { get; set; }
+		UIKit.UITableView pInfoTableView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (userIdLabel != null) {
-				userIdLabel.Dispose ();
-				userIdLabel = null;
+			if (pInfoTableView != null) {
+				pInfoTableView.Dispose ();
+				pInfoTableView = null;
 			}
 		}
 	}

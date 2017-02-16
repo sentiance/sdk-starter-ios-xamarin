@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKStarter", "SDKStarter.csproj", "{64475519-913E-4D32-849A-556DABDAE374}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64475519-913E-4D32-849A-556DABDAE374}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{64475519-913E-4D32-849A-556DABDAE374}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{64475519-913E-4D32-849A-556DABDAE374}.Release|iPhone.ActiveCfg = Release|iPhone
+		{64475519-913E-4D32-849A-556DABDAE374}.Release|iPhone.Build.0 = Release|iPhone
+		{64475519-913E-4D32-849A-556DABDAE374}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{64475519-913E-4D32-849A-556DABDAE374}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{64475519-913E-4D32-849A-556DABDAE374}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{64475519-913E-4D32-849A-556DABDAE374}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal

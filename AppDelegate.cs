@@ -5,21 +5,11 @@ using SENTTransportDetection;
 
 namespace SDKStarter
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the
-	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
 		const string APP_ID = "";
 		const string APP_SECRET = "";
-
-		// class-level declarations
-
-		public SENTTransportDetectionSDK SentianceSDK
-		{
-			get;
-			private set;
-		}
 
 		public override UIWindow Window
 		{
@@ -29,85 +19,51 @@ namespace SDKStarter
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
 
-			NSMutableDictionary config = new NSMutableDictionary();
-			config.Add(new NSString("autostart"), new NSNumber(true));
-			config.Add(new NSString("appid"), new NSString(APP_ID));
-			config.Add(new NSString("secret"), new NSString(APP_SECRET));
-			config.Add(new NSString("appLaunchOptions"), launchOptions ?? new NSDictionary());
+			Console.WriteLine("finished launching");
 
-			this.SentianceSDK = new SENTTransportDetectionSDK(config);
-			this.SentianceSDK.Delegate = new SENTTransportDelegate();
+			SENTConfig config = new SENTConfig(APP_ID, APP_SECRET, launchOptions ?? new NSDictionary());
+			config.DidReceiveSdkStatusUpdate = new Action<SENTSDKStatus>(onStatusUpdate);
+
+			SENTSDK.SharedInstance.InitWithConfig(config, new Action(onInitSuccess), new Action<SENTInitIssue>(onInitFailure));
 
 			return true;
 		}
 
-		public override void OnResignActivation(UIApplication application)
+		private void onInitSuccess()
 		{
-			// Invoked when the application is about to move from active to inactive state.
-			// This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
-			// or when the user quits the application and it begins the transition to the background state.
-			// Games should use this method to pause the game.
+			Console.WriteLine("Sentiance SDK initialized, version: {0}", SENTSDK.SharedInstance.Version);
+
+			SENTSDK.SharedInstance.Start(new Action<SENTSDKStatus>(onStartFinished));
 		}
 
-		public override void DidEnterBackground(UIApplication application)
+		private void onInitFailure(SENTInitIssue issue)
 		{
-			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
-			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
-		}
+			Console.WriteLine("Could not initialize SDK, error={0}", issue);
 
-		public override void WillEnterForeground(UIApplication application)
-		{
-			// Called as part of the transiton from background to active state.
-			// Here you can undo many of the changes made on entering the background.
-		}
-
-		public override void OnActivated(UIApplication application)
-		{
-			// Restart any tasks that were paused (or not yet started) while the application was inactive. 
-			// If the application was previously in the background, optionally refresh the user interface.
-		}
-
-		public override void WillTerminate(UIApplication application)
-		{
-			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
-		}
-	}
-
-	public class SENTTransportDelegate : SENTTransportDetectionSDKDelegate
-	{
-
-		public override void DidAuthenticationFailed(NSError error)
-		{
-			Console.WriteLine("Error launching Sentiance SDK: " + error);
-
-			// Here you should wait, inform the user to ensure an internet connection and retry initializeSentianceSdk
-
-
-			// Some SDK starter specific help
-			if (error.Code == 400)
+			switch (issue)
 			{
-				Console.Write("You should create a developer account on https://audience.sentiance.com/developers and afterwards register a Sentiance application on https://audience.sentiance.com/apps");
-				Console.Write("This will give you an application ID and secret which you can use to replace YOUR_APP_ID and YOUR_APP_SECRET in AppDelegate.m");
+				case SENTInitIssue.InvalidCredentials:
+					Console.WriteLine("Make sure APP_ID and APP_SECRET are set correctly.");
+					break;
+				case SENTInitIssue.ChangedCredentials:
+					Console.WriteLine("The app ID and secret have changed; this is not supported. If you meant to change the app credentials, please uninstall the app and try again.");
+					break;
+				case SENTInitIssue.ServiceUnreachable:
+					Console.WriteLine("The Sentiance API could not be reached. Double-check your internet connection and try again.");
+					break;
 			}
 		}
 
-		public override void DidAuthenticationSuccess()
+		private void onStartFinished(SENTSDKStatus status)
 		{
-			Console.WriteLine("==== Sentiance SDK started, version: " + SENTTransportDetectionSDK.SDKVersion);
-			Console.WriteLine("==== Sentiance platform user id for this install: " + SENTTransportDetectionSDK.UserId);
-			Console.WriteLine("==== Authorization token that can be used to query the HTTP API: Bearer " + SENTTransportDetectionSDK.UserToken);
-
-			NSNotificationCenter.DefaultCenter.PostNotificationName("SdkAuthenticationSuccess", null);
+			Console.WriteLine("SDK start finished with status: {0}", status.StartStatus);
 		}
 
-		public override void OnSdkIssue(SDKIssue issue, SENTStatusMessage message)
+		private void onStatusUpdate(SENTSDKStatus status)
 		{
-			Console.Write("Sentiance SDK Issue" + issue.Type);
+			Console.WriteLine("SDK status updated");
+			NSNotificationCenter.DefaultCenter.PostNotificationName("SdkStatusUpdated", status);
 		}
 	}
 }
-
-

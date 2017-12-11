@@ -41,10 +41,6 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We require your location to accurately detect your context and build your profile</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -58,5 +54,11 @@
 	<string>com.sentiance.sdkstarter.xamarin</string>
 	<key>NSMotionUsageDescription</key>
 	<string>To accurately detect your context and build your profile</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We require your location to accurately detect your context and build your profile</string>
 </dict>
 </plist>

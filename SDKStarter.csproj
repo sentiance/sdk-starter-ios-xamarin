@@ -71,8 +71,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="sentiance-ios-sdk-4.6.6">
-      <HintPath>Libs\sentiance-ios-sdk-4.6.6.dll</HintPath>
+    <Reference Include="sentiance-ios-sdk-4.6.12">
+      <HintPath>Libs\sentiance-ios-sdk-4.6.12.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

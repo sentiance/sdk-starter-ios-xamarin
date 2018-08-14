@@ -65,10 +65,6 @@ namespace SDKStarter
 			sdkInfoData.Add(formatQuota("Mobile data", status.MobileQuotaStatus, SENTSDK.SharedInstance.MobileQuotaUsage, SENTSDK.SharedInstance.MobileQuotaLimit));
             sdkInfoData.Add(formatQuota("Disk", status.DiskQuotaStatus, SENTSDK.SharedInstance.DiskQuotaUsage, SENTSDK.SharedInstance.DiskQuotaLimit));
 
-			DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dateTime = dateTime.AddSeconds(SENTSDK.SharedInstance.WiFiLastSeenTimestamp/ 1000).ToLocalTime();
-			sdkInfoData.Add("Wi-Fi last seen: " + dateTime.ToString("yyyy-MM-dd HH:mm:ss"));
-
 			(pInfoTableView.Source as IUpdateData).UpdateData(sdkInfoData);
 			pInfoTableView.ReloadData();
 

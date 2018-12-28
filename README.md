@@ -6,8 +6,8 @@ A simple single-view application that uses the Sentiance SDK.
 1. Clone this repository and `cd` into it.
 2. [Create a developer account here](https://audience.sentiance.com/developers).
 3. [Register a Sentiance application here](https://audience.sentiance.com/apps) to obtain an application ID and secret.
-4. [Download the Sentiance iOS Xamarin SDK](https://sentiance-sdk.s3.amazonaws.com/ios/xamarin/sentiance-ios-sdk-5.1.4.zip) and extract
-5. Place SENTSDK-5.1.4.dll and SENTSDK.bundle in the `Libs` folder.
+4. [Download the Sentiance iOS Xamarin SDK](https://sentiance-sdk.s3.amazonaws.com/ios/xamarin/sentiance-ios-sdk-5.1.5.zip) and extract
+5. Place SENTSDK-5.1.5.dll and SENTSDK.bundle in the `Libs` folder.
 6. Open the `.sln` file in Visual Studio.
 7. Make sure the DLL file is correctly added to the References.
 8. Add bundle package to Resources (Right click on Resources -> Add -> Add Existing Folder -> select SENTSDK.bundle -> Open -> Include All -> OK).

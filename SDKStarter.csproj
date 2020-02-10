@@ -71,8 +71,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="sentiance-ios-sdk-4.6.12">
-      <HintPath>Libs\sentiance-ios-sdk-4.6.12.dll</HintPath>
+    <Reference Include="sentiance-ios-sdk-5.6.0">
+      <HintPath>..\sdk_xamarin_bindings\ios\bin\Release\sentiance-ios-sdk-5.6.0.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +93,15 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Info.plist" />
+    <BundleResource Include="Resources\SENTSDK.bundle\Info.plist" />
+    <BundleResource Include="Resources\SENTSDK.bundle\SENTModel.momd\VersionInfo.plist" />
+    <BundleResource Include="Resources\SENTSDK.bundle\SENTModel.momd\SENTModel 3.omo" />
+    <BundleResource Include="Resources\SENTSDK.bundle\SENTModel.momd\SENTModel 3.mom" />
+    <BundleResource Include="Resources\SENTSDK.bundle\SENTModel.momd\SENTModel 2.mom" />
+    <BundleResource Include="Resources\SENTSDK.bundle\SENTModel.momd\SENTModel.mom" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

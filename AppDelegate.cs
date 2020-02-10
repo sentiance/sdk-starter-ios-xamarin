@@ -1,7 +1,7 @@
 ﻿using System;
 using Foundation;
 using UIKit;
-using SENTTransportDetection;
+using SENTIANCE;
 
 namespace SDKStarter
 {

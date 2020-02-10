@@ -4,8 +4,7 @@ using UIKit;
 using CoreGraphics;
 using Foundation;
 using System.Collections.Generic;
-using SENTTransportDetection;
-
+using SENTIANCE;
 namespace SDKStarter
 {
 	public partial class ViewController : UIViewController

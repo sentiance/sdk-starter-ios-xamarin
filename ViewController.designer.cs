@@ -18,10 +18,6 @@ namespace SDKStarter
 
         void ReleaseDesignerOutlets ()
         {
-            if (pInfoTableView != null) {
-                pInfoTableView.Dispose ();
-                pInfoTableView = null;
-            }
         }
     }
 }
